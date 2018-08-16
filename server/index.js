@@ -18,7 +18,7 @@ config.dev = !(process.env.NODE_ENV === 'production')
 
 // koneksi mongo
 let mongoose = require('mongoose');
-let mongoUrl = 'mongodb://localhost:27017/akufls'
+let mongoUrl = process.env.MONGO_STRING || 'mongodb://localhost:27017/akufls'
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl, { useNewUrlParser: true }, function (err) {
